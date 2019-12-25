@@ -1,0 +1,1116 @@
+<!DOCTYPE html>
+<html>
+<head lang="zh-Hans">
+
+	<!-- website info -->
+	<title>别忘双搜 - 百度谷歌一起搜，新一代双搜聚合搜索</title>
+	<meta name="keywords" content="双搜,谷歌学术,谷歌学术镜像,谷歌镜像,同时搜,百度谷歌一起搜,多搜多重对比聚合联合搜索引擎,google搜索,谷歌搜索">
+	<meta name="description" content="www.biewang.com，双搜索，多搜索，对比搜索，聚合搜索，联合搜索，搜索引擎大全，百度Google一起搜">
+	<link rel="search" type="application/opensearchdescription+xml" href="search.xml" title="百度谷歌一起搜，新一代双搜聚合搜索">
+	<meta http-equiv='Content-Security-Policy' content='block-all-mixed-content'>
+	<meta name="baidu_union_verify" content="4198e0bd72eb36f07efa7cf1c1d8da0a">
+	<meta name="author" content="dsh,root@dsh.email">
+
+	<!-- render info -->
+	<meta charset="UTF-8">
+	<meta name="robots" content="index,follow">
+	<meta name="renderer" content="webkit">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=3.0, user-scalable=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	
+	<!-- static file -->
+	<link rel="shortcut icon" href="/Public/img/favicon.ico" type="image/x-icon">
+	<link rel="stylesheet" type="text/css" href="/Public/css/normalize.css">
+	<link rel="stylesheet" type="text/css" href="/Public/css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="/Public/css/fontawesome-free-5.7.1/css/all.css">
+	<script src="/Public/js/jquery.js"></script>
+	<script src="/Public/js/alert.js"></script>
+	<script src="/Public/js/bootstrap.js"></script>
+	
+	
+	<script src='/Public/js/vue.min.js'></script>	<!-- initial page -->
+	
+
+<style type="text/css">
+	/*base stylesheet*/
+	@font-face {  
+        font-family: "Montserrat";  
+        src: url("/Public/font/Montserrat-Regular.ttf");
+    }
+    @font-face{
+        font-family: "Alibaba-PuHuiTi";
+        src:url("/Public/font/Alibaba-PuHuiTi-Regular.otf");
+    }
+    *{
+    	font-family: 'Alibaba-PuHuiTi','Montserrat', sans-serif;
+    }
+    a[title=站长统计]{
+    	display: none;
+    }
+    html,body{
+        background-color: #eef2f3;
+        overflow: hidden;
+        height: 100%;
+    }
+
+    [v-cloak]{
+        display: none
+    }
+    .slide-fade-enter-active {
+        transition: all .618s ease;
+    }
+    .slide-fade-leave-active {
+        transition: all .618s ease;
+    }
+    .slide-fade-enter{
+        transform: translateX(-400px);
+        opacity: 0;
+    } 
+    .slide-fade-leave-to
+    /* .slide-fade-leave-active for below version 2.1.8 */ {
+        transform: translateX(400px);
+        opacity: 0;
+    }
+    .fade-enter-active, 
+    .fade-leave-active {
+      transition: opacity .5s;
+    }
+    .fade-enter, 
+    .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+      opacity: 0;
+    }
+
+    /*biewang-alert*/
+    .biewang-alert{
+        z-index: 9999;
+        left: 0px;
+        top: -100%;
+        transition: top .8s ease;
+    }
+    .biewang-alert.active{
+        top:0px;
+        transition: top .8s ease;
+    }
+
+    /*biewang-option*/
+    .biewang-option{
+        background-color: #eef2f3;
+        color: #9B9B9B;
+        transition: color .3s ease, background-color .3s ease;
+    }
+    .biewang-option:hover{
+        transition: color .3s ease, background-color .3s ease;
+        color: #fff;
+        background-color: #4aa3df;
+        text-decoration: underline;
+        cursor: pointer;
+    }
+
+    /*仿 Bootstrap 样式库*/
+    .font-size-lg{
+        font-size: 2rem;
+    }
+    .font-size-md{
+        font-size: 1.5rem;
+    }
+    .letter-spaceing-0{
+        letter-spacing: 0px!important;
+    }
+    .letter-spaceing--1{
+        letter-spacing: -1px!important;
+    }
+    .letter-spaceing--2{
+        letter-spacing: -2px!important;
+    }
+    .shadow-0{
+        box-shadow:none!important;
+    }
+    .input{
+        display: block;
+        width: 100%;
+        height: calc(1.75rem + 2px);
+        padding: .375rem .75rem;
+        font-size: 1rem;
+        line-height: 1.5;
+        color: #495057;
+        background-color: #fff;
+        background-clip: padding-box;
+        border: 1px solid #ced4da;
+        border-radius: .15rem;
+        transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out, width .5s ease;
+    }
+    .input:focus {
+        color: #495057;
+        background-color: #fff;
+        border-color: #80bdff;
+        outline: 0;
+        box-shadow: 0 0 0 0.1rem rgba(0,123,255,.25);
+        transition: width .5s ease;
+    }
+    .inline-height-all{
+        line-height: all!important;
+    }
+    .inline-height-30{
+        line-height: 30px;
+    }
+    .text-decoration-none{
+        text-decoration: none!important;
+    }
+    .cursor-pointer{
+        cursor: pointer;
+    }
+    .center-center{
+        position: absolute;
+        transform: translate(-50%,-50%);
+        left: 50%;
+        top: 50%;
+    }
+    .w-65{
+        width: 65%!important;
+    }
+    .w-90{
+        width: 90%!important;
+    }
+    .bg-transparent{
+        background: transparent!important;
+    }
+    .mt-10{
+        margin-top: 10rem;
+    }
+    .px-8 {
+        padding-right: 8rem;
+        padding-left: 8rem;
+    }
+
+    .cancel-select{
+        -moz-user-select: none; /*火狐*/
+        -webkit-user-select: none; /*webkit浏览器*/
+        -ms-user-select: none; /*IE10*/
+        -khtml-user-select: none; /*早期浏览器*/
+        user-select: none;
+    }
+
+    .cursor-not-allowed {
+        cursor: not-allowed!important;
+    }
+</style>
+<script type="text/javascript">
+    
+    var BEFORE_HISTROY="";
+
+    
+	var PAGE_ID="home_index",LAYOUT="col-6",DEFAULT_ENGINE=Array;
+</script>
+</head>
+<body>
+
+
+<section class="m-0 p-0 w-100 bg-transparent" id="pc-nav" v-cloak>
+	<nav class="w-100 py-2 pb-0 m-0 bg-white h-auto shadow-0 border-bottom">
+		<div class="container row mx-auto">
+			<a class="text-decoration-none d-block position-fixed text-center" id="nav-logo-container" href="/index.php/index/newsearch" style="width: 100px;height: 36px;left: 0rem;margin-left: 20px;">
+				<img src="/Public/img/logo.svg" style="width: 100%;left: 50%;top: 50%;position: absolute;transform: translate(-50%,-50%);">
+			</a>
+			<div class="position-relative float-right ml-auto" style="width: 75%;height: 36px;margin-right: 0.75rem;">
+				<i class="fas fa-search p-2 position-absolute" style="left:5px;top: 2px;z-index: 99;color: #9B9B9B;"></i>
+				<input type="search"
+				placeholder="请输入搜索关键词" 
+					id="main-input"
+					class="input h-100 border-0 py-0 position-relative w-100"
+					v-model="user_input"
+					style="background-color: #eff0f1;color: #505b67;border: none!important;box-shadow: none;padding-left: 2.3rem;">
+			</div>
+			<div class="position-relative" style="width: 125px;">
+				<div class="engine-option-container w-100 center-center" style="z-index: 98;">
+					<div class="position-relative biewang-option py-1 w-100 font-weight-normal text-center" style="background-color: rgb(37, 129, 227);height: 36px;line-height: 28px;border-radius: 0.15rem;">
+						<span class="text-white">
+							搜索					
+						</span>
+						<i class="fas fa-chevron-down text-white"></i>
+					</div>
+					<div class="else-option-container w-100">
+						<a class="rounded-0 position-relative biewang-option py-1 w-100 font-weight-normal text-center d-block" href="/index.php/index/index">
+							
+								网页搜索							
+							
+						</a>
+						<a class="rounded-0 position-relative biewang-option py-1 w-100 font-weight-normal text-center d-block" href="/index.php/index/secret">
+							
+								无痕搜索							
+							
+						</a>
+						<a class="rounded-0 position-relative biewang-option py-1 w-100 font-weight-normal text-center d-block" href="/index.php/index/academic">
+							
+								学术					
+							
+						</a>
+						<a class="rounded-0 position-relative biewang-option py-1 w-100 font-weight-normal text-center d-block" href="/index.php/index/translate">
+							
+								翻译					
+							
+						</a>
+						<a class="rounded-0 position-relative biewang-option py-1 w-100 font-weight-normal text-center d-block" href="/index.php/index/picture">
+							
+								图片素材					
+							
+						</a>
+						<a class="rounded-0 position-relative biewang-option py-1 w-100 font-weight-normal text-center d-block" href="/index.php/index/health">
+							
+								健康					
+							
+						</a>
+						<a class="rounded-0 position-relative biewang-option py-1 w-100 font-weight-normal text-center d-block" href="/index.php/index/video">
+							
+								影视					
+							
+						</a>
+						<a class="rounded-0 position-relative biewang-option py-1 w-100 font-weight-normal text-center d-block" href="/index.php/index/ebook">
+							
+								电子书					
+							
+						</a>
+						<a class="rounded-0 position-relative biewang-option py-1 w-100 font-weight-normal text-center d-block" href="/index.php/index/netdisk">
+							
+								网盘资源				
+							
+						</a>
+						<a class="rounded-0 position-relative biewang-option py-1 w-100 font-weight-normal text-center d-block" href="/index.php/index/software">
+							
+								软件					
+							
+						</a>
+						<a class="rounded-0 position-relative biewang-option py-1 w-100 font-weight-normal text-center d-block" href="/index.php/index/music">
+							
+								音乐					
+							
+						</a>
+						<a class="rounded-0 position-relative biewang-option py-1 w-100 font-weight-normal text-center d-block" href="/index.php/index/library">
+							
+								文库				
+							
+						</a>
+						<a class="rounded-0 position-relative biewang-option py-1 w-100 font-weight-normal text-center d-block" href="/index.php/index/price">
+							
+								购物比价					
+							
+						</a>
+					</div>
+				</div>
+			</div>
+			<div class="position-relative" style="width: 95px;margin-left: 0.75rem;">
+				<div class="engine-option-container w-100 center-center" style="z-index: 98;">
+					<div class="position-relative biewang-option py-1 w-100 font-weight-normal text-center" style="height: 36px;line-height: 28px;border-radius: 0.15rem;background: #EDEEF0;color: #434649;">
+						
+							<template v-if="layout==='col-12'">单搜</template>
+							<template v-else-if="layout==='col-6'">双搜</template>
+							<template v-else-if="layout==='col-4'">三搜</template>
+							<template v-else-if="layout==='col-3'">四搜	</template>
+						<i class="fas fa-chevron-down"></i>
+					</div>
+					<div class="else-option-container w-100">
+						<div class="rounded-0 position-relative biewang-option py-1 w-100 font-weight-normal text-center" @click="changeLayout('col-12')">
+							
+								单搜								
+							
+						</div>
+						<div class="rounded-0 position-relative biewang-option py-1 w-100 font-weight-normal text-center" @click="changeLayout('col-6')">
+							
+								双搜								
+							
+						</div>
+						<div class="rounded-0 position-relative biewang-option py-1 w-100 font-weight-normal text-center" @click="changeLayout('col-4')">
+							
+								三搜								
+							
+						</div>
+						<div class="rounded-0 position-relative biewang-option py-1 w-100 font-weight-normal text-center" @click="changeLayout('col-3')">
+							
+								四搜								
+							
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+	</nav>
+	
+	<transition name="slide-fade">
+		<template v-if="show_layout_selecter">
+			<div id="layout-selecter"
+				class="row mx-3 my-2 align-items-center justify-content-end bg-transparent w-25 ml-auto">
+				<div class="layout-option p-2 col text-center mr-1"
+					:class="layout==='col-12'?'active':false"
+					@click="changeLayout('col-12')">
+					<i class="fas fa-slash fa-grip-lines fa-2x py-4"></i>
+				</div>
+				<div class="layout-option p-2 col text-center mr-1"
+					:class="layout==='col-6'?'active':false"
+					@click="changeLayout('col-6')">
+					<i class="fas fa-fw fa-rotate-90 fa-grip-lines fa-2x py-4"></i>
+				</div>
+				<div class="layout-option p-2 col text-center mr-1"
+					:class="layout==='col-4'?'active':false"
+					@click="changeLayout('col-4')">
+					<i class="fas fa-fw fa-bars fa-rotate-90 fa-2x py-4"></i>
+				</div>
+				<div class="layout-option p-2 col text-center mr-1"
+					:class="layout==='col-3'?'active':false"
+					@click="changeLayout('col-3')">
+					<i class="fas fa-align-justify fa-fw fa-rotate-90 fa-2x py-4"></i>
+				</div>
+				<div class="col-auto ml-3">
+					<i class="fas fa-fw fa-times text-lager text-dark cursor-pointer"
+						@click="show_layout_selecter=false"></i>
+				</div>
+			</div>
+		</template>
+	</transition>
+</section>
+<style type="text/css">
+	.engine-option-container *{
+		text-decoration: none!important;
+	}
+	.link-item{
+		padding-right: 0.75rem!important;
+		padding-left: 0.75rem!important;
+		color: inherit;
+		border-bottom: 1.68px solid transparent;
+		transition: border-color .3s ease,
+			color .3s ease;
+	}
+	.link-item:hover,
+	.link-item.active{
+		color: #007bff!important;
+		border-color: #007bff;
+		transition: border-color .3s ease,
+			color .3s ease;
+	}
+	i.fas.fa-slash{
+		transform: rotate(52deg);
+	}
+
+	#history-container{
+		z-index: 999;
+	}
+
+	#main-input .input:focus {
+	    color: #495057;
+	    background-color: #fff;
+	     border-color: #80bdff; 
+	    outline: 0;
+	     box-shadow: none!important;
+	    transition: width .5s ease;
+	}
+
+	#main-input{
+		width: 12.5rem;
+		transition: width .3s ease;
+	}
+	#main-input:focus{
+		width: 13.5rem;
+		transition: width .3s ease;
+	}
+
+	#layout-selecter{
+		overflow-x: hidden;
+	}
+	.layout-option{
+		color: #000;
+		border:1.68px solid #efefef;
+		border-radius: .2rem;
+		background-color: #fff;
+		transition: all 0.3s ease;
+	}
+	.layout-option.active,
+	.layout-option:hover{
+		color: #007bff;
+		border-color: #007bff;
+		-webkit-box-shadow: 0 4px 4px rgba(0,0,0,0.24), 0 0 4px rgba(0,0,0,0.12), 0 6px 18px rgba(0,0,0,0.12);
+	    box-shadow: 0 4px 4px rgba(0,0,0,0.24), 0 0 4px rgba(0,0,0,0.12), 0 6px 18px rgba(0,0,0,0.12);
+	    cursor: pointer;
+	    text-decoration: none;
+	    -webkit-transform: translate3d(0, -0.618px, 0);
+	    transform: translate3d(0, -0.618px, 0);
+	    transition: all 0.3s ease;
+	}
+
+	*::-webkit-input-placeholder{
+		color: #9B9B9B;
+	}
+</style>
+<script type="text/javascript">
+function setCookie(name,value) { 
+    var Days = 30; 
+    var exp = new Date(); 
+    exp.setTime(exp.getTime() + Days*24*60*60*1000); 
+    document.cookie = name + "="+ escape (value) + ";expires=" + exp.toGMTString(); 
+}
+function getCookie(name) { 
+    var arr,reg=new RegExp("(^| )"+name+"=([^;]*)(;|$)");
+ 
+    if(arr=document.cookie.match(reg))
+ 
+        return unescape(arr[2]); 
+    else 
+        return null; 
+} 
+
+
+	var bus_vm = new Vue();
+	var pc_nav_vm = new Vue({
+		el:"#pc-nav",
+		data:{
+			user_input:!!BEFORE_HISTROY?BEFORE_HISTROY:getCookie('trans_keyword'),
+			layout:"col-6",
+			show_layout_selecter:false,
+			history:null,
+			show_history:false
+		},
+		watch:{
+			"user_input":function(new_user_input){
+
+				document.title=new_user_input+"——别忘双搜 - 百度谷歌一起搜，新一代双搜聚合搜索";
+				// 与中间组件通讯
+				bus_vm.$emit("user_input_change",new_user_input);
+				
+				// 修改url
+				if (new_user_input) {
+					var url = window.location.href; 
+					var valiable = url.split('?')[0]; 
+					window.history.pushState({},0,valiable+"?q="+new_user_input);
+				}else{
+					window.history.pushState({},0,window.location.href.split('?')[0]);
+				}
+
+				var _this=this;
+				setCookie('trans_keyword',new_user_input);
+			}
+		},
+		methods:{
+			changeLayout:function(new_layout){
+				var _this=this;
+
+				_this.layout=new_layout;	
+				// 与中间组件通讯
+				bus_vm.$emit("layout_change",new_layout);
+				_this.show_layout_selecter=false;
+
+				jQuery.get(
+					"/index.php/index/changelayout",
+					{
+						page_id:PAGE_ID,
+						new_layout:new_layout
+					}
+				);
+			},
+			doSearch:function(key_word){
+				this.show_history=false;
+				this.user_input=key_word;
+			},
+			deleteHistory:function(each_history){
+				var delete_index=this.history.indexOf(each_history);
+				this.history.splice(delete_index,1);
+				jQuery.get(
+					"/index.php/index/deletehistory",
+					{
+						page_id:PAGE_ID,
+						delete_history:each_history
+					}
+				)
+			},
+			deleteAllHistory:function(){
+				this.history=null;
+				this.show_history=false;
+				jQuery.get(
+					"/index.php/index/deleteallhistory",
+					{
+						page_id:PAGE_ID
+					},
+					function(){
+						// document.location.href="/index.php/index/newsearch";
+					}
+				);
+			}
+		},
+		mounted:function(){
+			if (!!this.user_input) {
+				document.title=this.user_input+" —— 别忘双搜 - 百度谷歌一起搜，新一代双搜聚合搜索";
+			}else{
+				document.title="别忘双搜 - 百度谷歌一起搜，新一代双搜聚合搜索";
+			}
+
+			// 输入值改变
+			bus_vm.$on("user_input_change",(new_user_input)=>{
+				this.user_input=new_user_input;
+			});
+		}
+	});
+
+</script>
+
+
+
+
+<section id="index-cover" class="position-fixed w-100 h-100 bg-white">
+				<div id="index-cover-content" class="mx-auto">
+					<div id="logo-container" class="text-center mt-10 py-3">
+						<img src="/Public/img/logo.svg" width="260">
+					</div>
+					<section class="position-relative my-3">
+						<i class="fas fa-search p-2 cursor-pointer" :class="is_active?'active':false" @click="doSearch()"></i>
+						<input type="text" id="index-cover-input" @focus="is_active=true" @blur="is_active=false" v-on:keyup.13="doSearch()">
+					</section>
+					<div class="row no-gutters w-90 mx-auto justify-content-between my-4">
+						<div class="col-auto">
+							<a href="javascript:void(0)" class="px-1" @click="goTo('/index.php/index/secret')">无痕搜索</a>
+						</div>
+						<div class="col-auto">
+							<a href="javascript:void(0)" class="px-1" @click="goTo('/index.php/index/translate')">翻译</a>
+						</div>
+						<div class="col-auto">
+							<a href="javascript:void(0)" class="px-1" @click="goTo('/index.php/index/academic')">学术</a>
+						</div>
+						<div class="col-auto">
+							<a href="javascript:void(0)" class="px-1" @click="goTo('/index.php/index/picture')">图片素材</a>
+						</div>
+						<div class="col-auto">
+							<a href="javascript:void(0)" class="px-1" @click="goTo('/index.php/index/health')">健康</a>
+						</div>
+						<div class="col-auto">
+							<a href="javascript:void(0)" class="px-1" @click="goTo('/index.php/index/video')">影视</a>
+						</div>
+						<div class="col-auto">
+							<a href="javascript:void(0)" class="px-1" @click="goTo('/index.php/index/ebook')">电子书</a>
+						</div>
+						<div class="col-auto">
+							<a href="javascript:void(0)" class="px-1" @click="goTo('/index.php/index/netdisk')">资源网盘</a>
+						</div>
+						<div class="col-auto">
+							<a href="javascript:void(0)" class="px-1" @click="goTo('/index.php/index/software')">软件</a>
+						</div>
+						<div class="col-auto">
+							<a href="javascript:void(0)" class="px-1" @click="goTo('/index.php/index/music')">音乐</a>
+						</div>
+						<div class="col-auto">
+							<a href="javascript:void(0)" class="px-1" @click="goTo('/index.php/index/library')">文库</a>
+						</div>
+						<div class="col-auto">
+							<a href="javascript:void(0)" class="px-1" @click="goTo('/index.php/index/picture')">购物比价</a>
+						</div>
+						
+					</div>
+	<!-- 				<h4 class="mt-4 pt-2 text-center">
+						<small class="badge badge-light px-8 font-weight-normal">独创双搜布局，同时搜索百度谷歌，大大提升搜索效率！</small>
+						<div class="w-100 my-2"></div>
+						<small class="badge badge-light px-4 font-weight-normal">聚合 15 类场景、300 多款搜索引擎，你想要的这里都能找到</small>
+					</h4> -->
+				</div>
+				<footer class="fixed-bottom position-fixed text-center pb-3">
+					<small class="py-1" style="color: rgb(148, 148, 148) !important;">
+						友情链接 ：
+						<a target="_blank" href="http://www.976km.cn/" class="px-1" style="color: rgb(148, 148, 148) !important;">九州影院</a>
+						<a target="_blank" href="https://www.zhibo8.cc/" class="px-1" style="color: rgb(148, 148, 148) !important;">直播吧</a>
+						<a target="_blank" href="http://fulibus.net/" class="px-1" style="color: rgb(148, 148, 148) !important;">福利吧</a>
+					</small>
+					<br>
+					<small class="py-1 px-2" style="color: rgb(148, 148, 148) !important;">
+						渝 ICP 备 19004782 号 
+					</small>
+					<small data-toggle="modal" data-target="#hezuo-model" class="py-1 px-2" style="color: rgb(148, 148, 148) !important; cursor: pointer;">联系我们</small>
+					<small class="py-1 px-2">
+						<a href="https://support.qq.com/products/59943" class="text-decoration-none" target="_blank" style="color: rgb(148, 148, 148) !important;">意见反馈</a>
+					</small>
+					<br>
+					<small class="py-1" style="color: rgb(148, 148, 148) !important;">©biewang.com，本站不提供任何资源储存服务，只提供搜索查询服务</small>
+				</footer>
+			</section>
+			<div id="hezuo-model" tabindex="-1" role="dialog" aria-labelledby="hezuo-model-lable" class="modal fade show" aria-modal="true">
+				<div role="document" class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 id="hezuo-model-lable" class="modal-title">联系我们</h5>
+							<button type="button" data-dismiss="modal" aria-label="Close" class="close">
+								<span aria-hidden="true">×</span>
+							</button>
+						</div>
+						<p class="modal-body">
+							<i class="fab fa-qq pr-1 text-primary"></i>QQ 454882367
+						</p>
+					</div>
+				</div>
+			</div>
+			<style type="text/css">
+				#index-cover-content{
+					width: 800px;
+				}
+				#index-cover{
+					z-index: 99;
+					top: 0px;
+					left: 0px;
+				}
+				#index-cover .fas.fa-search {
+				    color: #999999;
+				    position: absolute;
+				    right: 0rem;
+				    z-index: 99;
+				    top: 50%;
+				    transform: translate(-20%,-50%);
+				    transition: color 0.3s ease;
+				}
+				#index-cover input {
+				    width: 100%;
+				    letter-spacing: 1.25px;
+				    position: relative;
+				    border: 1px solid #CDCDCC;
+				    outline: none;
+				    border-radius: 0.15rem;
+				    background-color: #fff;
+				    padding: 0.5rem 0.75rem;
+				    padding-right: 3rem;
+				    display: block;
+				    min-width: 700px;
+				    transition: border 0.3s ease,box-shadow 0.3s ease;
+				}
+				#index-cover input:focus {
+				    border-color: #007bff;
+				    box-shadow: 0 0.5rem 1rem rgba(97, 97, 97, 0.15);
+				    transition: border 0.3s ease,box-shadow 0.3s ease;
+				}
+				#index-cover .fas.fa-search.active{
+					color: #007bff;
+					transition: color 0.3s ease;
+				}
+				#index-cover .col-auto a {
+				    color: #868686!important;
+				}
+				#index-cover h4 .badge {
+				    color: #ca664d;
+				    padding-top: 0.4rem;
+				    padding-bottom: 0.4rem;
+				    background-color: #fae8d9;
+				    font-size: 0.95rem;
+				}
+			</style>
+			<script type="text/javascript">
+				var index_cover_vm = new Vue({
+					el:"#index-cover",
+					data:{
+						is_active:false
+					},
+					mounted:function(){
+						jQuery("#index-cover input").focus();
+					},
+					methods:{
+						doSearch:function(){
+							var value=jQuery("#index-cover input").val();
+							if (value) {
+								pc_nav_vm.user_input=value;
+								jQuery("#index-cover").remove();
+							}
+							else{
+								alert("请输入任意关键词进行搜索");
+							}
+						},
+						goTo:function(target){
+							var value=jQuery("#index-cover input").val();
+							
+							window.location.href=target+"?q="+value;
+							
+						}
+					}
+				});
+			</script>
+
+
+	<script type="text/javascript">
+const ENGINE=[
+	{
+		name:"百度",
+		style:{
+			show:"width: 1200px; margin-left: -115px; margin-top: 0px;",
+			hide:"width: 1200px; margin-left: -115px; margin-top: -60px;"
+		},
+		url:"https://www.baidu.com/s?wd=",
+		logo:"/Public/img/baidu.png",
+		getPage:function(page=1){
+			return "&pn="+parseInt((page-1)*10);
+		}
+	},
+	{
+		name:"谷歌",
+		style:{
+			show:"width: 1150px; margin-left: -100px; margin-top: 0px;",
+			hide:"width: 1150px; margin-left: -100px; margin-top: -75px;"
+		},
+		url:"https://www.da-apple.com/search?q=",
+		logo:"/Public/img/google.png",
+		getPage:function(page=1){
+			return "&page="+parseInt(page);
+		}
+	},
+	{
+		name:"必应",
+		style:{
+			show:"width: 1250px; margin-left: -100px; margin-top: 0px;",
+			hide:"width: 1250px; margin-left: -100px; margin-top: -100px;"
+		},
+		url:"https://cn.bing.com/search?q=",
+		logo:"/Public/img/bing.png",
+		getPage:function(page=1){
+			return "&first="+parseInt(parseInt((page-1)*10)+1);
+		}
+	},
+	{
+		name:"360",
+		style:{
+			show:"width: 1150px; margin-left: -115px; margin-top: 0px;",
+			hide:"width: 1150px; margin-left: -115px; margin-top: -60px;"
+		},
+		url:"https://www.so.com/s?q=",
+		logo:"/Public/img/360.png",
+		getPage:function(page=1){
+			return "&pn="+parseInt(page);
+		}
+	},
+	{
+		name:"搜狗",
+		style:{
+			show:"width: 1150px; margin-left: -115px; margin-top: 0px;",
+			hide:"width: 1150px; margin-left: -115px; margin-top: -60px;"
+		},
+		url:"https://www.sogou.com/web?query=",
+		logo:"/Public/img/sogo.png",
+		getPage:function(page=1){
+			return "&page="+parseInt(page);
+		}
+	},
+	{
+		name:"中国搜索",
+		style:{
+			show:"width: 1150px; margin-left: -25px; margin-top: 0px;",
+			hide:"width: 1150px; margin-left: -25px; margin-top: -60px;"
+		},
+		url:"http://www.chinaso.com/search/pagesearch.htm?q=",
+		logo:"/Public/img/chinaso.jpg",
+		getPage:function(page=1){
+			return "&page="+parseInt(page);
+		}
+	},
+	{
+		name:"知乎",
+		style:{
+			show:"width: 1150px;margin-left: -50px;height: 60rem;margin-top: -43px;",
+			hide:"width: 1150px;margin-left: -50px;height: 60rem;margin-top: -98px;"
+		},
+		url:"https://zhihu.sogou.com/zhihu?query=",
+		logo:"/Public/img/Zhihu_logo.svg",
+		getPage:function(page=1){
+			return "&page="+page;
+		}
+	}
+];	
+</script>
+<div id="search-container" class="px-1 mt-2 row no-gutters">
+	<template v-for="(engine,engine_index) in my_engines" v-if="engine_index<getLayoutCount()">
+		<search-box
+			:engine_index="engine_index"
+			:engine="getEngineInBox(engine_index)"
+			:layout="layout"
+			:layout_counter="getLayoutCount()"
+			:key_word="user_input"></search-box>
+	</template>
+</div>
+<style type="text/css">
+	#main-container{
+		transition: all .3s ease;
+	}
+	#search-container .fas.fa-chevron-down{
+		position: absolute;
+		top: 28%;
+		right: 0.5rem;
+	}
+	.fas.fa-chevron-down{
+		text-decoration: none!important;
+		transition: transform .3s ease;
+	}
+	.engine-option-container:hover i{
+		transform: rotate(180deg);
+		transition: transform .3s ease;
+	}
+	.else-option-container{
+		position: absolute;
+		top: 100%;
+		z-index: 9;
+		display: none;
+	}
+	.engine-option-container{
+		transition: box-shadow .3s ease;
+	}
+	.engine-option-container:hover{
+		transition: box-shadow .3s ease;
+		box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important;
+	}
+	.engine-option-container:hover .else-option-container{
+		display: block;
+	}
+
+	
+	input::-webkit-outer-spin-button,input::-webkit-inner-spin-button{
+  		-webkit-appearance: none !important; 
+   	}/* chrome */
+	input[type="number"]{
+  		-moz-appearance:textfield;/* firefox */
+    }
+    .page-index-input{
+		width: 4rem;
+		text-align: center;
+		background-color: #eef2f3;
+		border-color: transparent;
+		/*background-color: transparent;*/
+		outline: none;
+	}
+	.page-index-input:focus{
+		border-color: transparent;
+		border-bottom: 1px solid #000;
+	}
+
+	.page-index-option-container{
+		width: 100%;
+		top: 100%;
+		left: 0px;
+		display: none;
+	}
+	.page-index-container:hover .page-index-option-container{
+		display: block;
+	}
+
+	.ifream-container {
+		background-color: #fff;
+	    height: 100%;
+	    overflow: hidden!important;
+
+	}
+	.engine-logo{
+		top: -1px;
+	}
+</style>
+<script type="text/javascript">
+
+	let search_box={
+		props:["engine","layout","layout_counter","key_word","engine_index"],
+		data:function(){
+			return {
+				engine_in_box:this.engine,
+				all_engine:ENGINE,
+				page:1,
+				style:"hide",
+				init_time:new Date(),
+				random:Math.random().toString().replace(".","")
+			}
+		},
+		template:'\
+			<div :class="layout" class="px-1" :id="getId()" v-if="engine_in_box">\
+				<div class="search-box-header rounded bg-white py-1 row no-gutters justify-content-between w-100 mx-auto">\
+					<template v-if="layout!==\'col-12\'">\
+						<div :class="\'col-\'+(layout_counter+1)" class="engine-option-container ml-1 position-relative">\
+							<div class="rounded position-relative biewang-option py-1 w-100">\
+								<span class="pl-1">\
+									<img :src="engine_in_box.logo" width="16.8px" class="mr-2 position-relative engine-logo">\
+									{{ engine_in_box.name }}\
+								</span>\
+								<i class="fas fa-chevron-down"></i>\
+							</div>\
+							<div class="else-option-container w-100">\
+								<template v-for="other_engine in all_engine" v-if="other_engine.name!=engine_in_box.name">\
+									<div class="rounded position-relative biewang-option py-1 w-100"\
+										@click="setNewEngine(other_engine)">\
+										<span class="pl-1">\
+											<img :src="other_engine.logo" width="16.8px" class="mr-2 position-relative engine-logo">\
+											{{ other_engine.name }}\
+										</span>\
+									</div>\
+								</template>\
+							</div>\
+						</div>\
+						<div class="mr-1 position-relative justify-content-end col-auto">\
+							<small class="rounded biewang-option d-table-cell"\
+								@click="style===\'hide\'?style=\'show\':style=\'hide\'">\
+								<i class="fas fa-search p-2"></i>\
+							</small>\
+							<div class="pr-1 d-table-cell"></div>\
+							<div class="rounded biewang-option d-table-cell" :class="page===1?\'cursor-not-allowed\':false"\
+								@click="page==1?page=1:page--">\
+								<small class="p-2 text-nowrap" :class="page==1?\'cursor-not-allowed\':false">前一页</small>\
+							</div>\
+							<div class="px-1 d-table-cell position-relative page-index-container">\
+								<input type="number" class="page-index-input" v-model="page"/>\
+								<div class="position-absolute page-index-option-container">\
+									<div class="biewang-option text-center px-1 mx-1" v-for="index in 5"\
+										@click="page=page+index">\
+										{{ page+index }}\
+									</div>\
+								</div>\
+							</div>\
+							<div class="rounded biewang-option d-table-cell"\
+								@click="page++">\
+								<small class="p-2 text-nowrap">后一页</small>\
+							</div>\
+						</div>\
+					</template>\
+					<template v-else>\
+						<div class="col-auto ml-1 row no-gutters">\
+							<div class="biewang-option mr-1 rounded px-2 py-1"\
+								v-for="engine in all_engine"\
+								:class="engine.name===engine_in_box.name?\'active\':false"\
+								@click="setNewEngine(engine)">\
+								<img :src="engine.logo" width="16.8px" class="mr-2 position-relative engine-logo">\
+								{{ engine.name }}\
+							</div>\
+						</div>\
+					</template>\
+				</div>\
+				<div class="mt-2 rounded ifream-container">\
+					<template v-if="key_word&&layout!==\'col-12\'">\
+						<iframe\
+				        	border="0"\
+				        	frameborder="no"\
+				        	framespacing="0"\
+				        	allowfullscreen="true"\
+							mozallowfullscreen="mozallowfullscreen"\
+							msallowfullscreen="msallowfullscreen"\
+							oallowfullscreen="oallowfullscreen"\
+							webkitallowfullscreen="webkitallowfullscreen"\
+							:src="getIframeUrl()"\
+							:style="style===\'hide\'?engine_in_box.style.hide:engine_in_box.style.show"\
+							style="height:60rem;">\
+						</iframe>\
+					</template>\
+					<template v-if="key_word&&layout===\'col-12\'">\
+						<iframe\
+				        	border="0"\
+				        	frameborder="no"\
+				        	framespacing="0"\
+				        	allowfullscreen="true"\
+							mozallowfullscreen="mozallowfullscreen"\
+							msallowfullscreen="msallowfullscreen"\
+							oallowfullscreen="oallowfullscreen"\
+							webkitallowfullscreen="webkitallowfullscreen"\
+							:src="getIframeUrl()"\
+							style="width:100%;height:60rem;">\
+						</iframe>\
+					</template>\
+					<template v-else>\
+						<div class="position-relative w-100 empty-container" style="height:60rem;">\
+							<img :src="engine_in_box.logo" class="pr-2 center-center position-absolute" height="60rem">\
+						</div>\
+					</template>\
+				</div>\
+			</div>\
+		',
+		methods:{
+			setNewEngine:function(new_engine){
+				let _this=this;
+				this.engine_in_box=new_engine;
+
+				$.get("/index.php/index/setengine",{
+					engine_index:_this.engine_index,
+					engine_name:new_engine.name,
+					page_id:PAGE_ID
+				});
+			},
+			getId:function(){
+				return "search-box-"+this.init_time.getMinutes()+this.init_time.getSeconds()+this.init_time.getMilliseconds()+this.random;
+			},
+			getIframeUrl:function(){
+				if(this.engine_in_box.name!="慢慢买"){
+					return this.engine_in_box.url+this.key_word+this.engine_in_box.getPage(this.page);
+				}else{
+					return this.engine_in_box.url+encodeURI(this.key_word)+this.engine_in_box.getPage(this.page);
+				}
+				
+			}
+		}
+	};
+
+
+	var search_container_vm=new Vue({
+		el:"#search-container",
+			data:{
+				is_focus:false,
+				is_first:!!pc_nav_vm.user_input?false:true,
+				layout:pc_nav_vm.layout,
+				user_input:pc_nav_vm.user_input,
+				my_engines:ENGINE
+			},
+			components:{
+				"search-box":search_box
+			},
+			watch:{
+				"user_input":function(new_user_input){
+					this.is_first=false;
+					// 与中间组件通讯
+					bus_vm.$emit("user_input_change",new_user_input);
+				}
+			},
+			mounted:function(){
+				// 布局改变
+				bus_vm.$on("layout_change",(new_layout)=>{
+					this.layout=new_layout;
+				});
+				// 输入值改变
+				bus_vm.$on("user_input_change",(new_user_input)=>{
+					this.user_input=new_user_input;
+				});
+			},
+			methods:{
+				getLayoutCount:function(){
+					switch(this.layout){
+						case "col-12":
+							return 1;
+							break;
+						case "col-6":
+							return 2;
+							break;
+						case "col-4":
+						 	return 3;
+						 	break;
+						case "col-3":
+							return 4;
+							break;
+						default:
+							return 2;
+							break;
+					}
+				},
+				getEngineInBox:function(engine_index){
+					var out=null;
+					if(!!DEFAULT_ENGINE[engine_index]){
+						ENGINE.forEach(function(each_engine){
+							if(each_engine.name==DEFAULT_ENGINE[engine_index]){
+								out = each_engine;
+							}
+						});
+					}
+					else{
+						out = ENGINE[engine_index];
+					}
+					return out;
+				}
+			}
+		});
+
+</script>
+<script type="text/javascript" src="https://s4.cnzz.com/z_stat.php?id=1255769525&web_id=1255769525"></script>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?bdfee1930df4f9ff1e56f700bb8030f1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+</body>
+</html>
